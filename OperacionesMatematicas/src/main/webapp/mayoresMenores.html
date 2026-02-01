@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Números</title>
+</head>
+
+<body>
+    <h2>Cálculo de Números</h2>
+    
+    <form action="MayoresMenores" method="POST">
+        <h3>Puntos A y B (3 números):</h3>
+        Número 1: <input type="number" name="n1" required><br>
+        Número 2: <input type="number" name="n2" required><br>
+        Número 3: <input type="number" name="n3" required><br>
+        
+        
+        <h3>Numeros Repetidos:</h3>
+        <input pattern="^[0-9, ]+$" name="listaNumeros" placeholder="Ej: 5,2,8,2,4,5,2" required><br>
+        <input type="submit" value="Calcular">  
+    </form>
+    
+</body>
+
+
+</html>
