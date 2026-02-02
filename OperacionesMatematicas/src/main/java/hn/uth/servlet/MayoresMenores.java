@@ -25,12 +25,12 @@ public class MayoresMenores extends HttpServlet {
 
         if ("POST".equalsIgnoreCase(metodo)) {
         	
-            // Recibimos los 3 números para los incisos a y b
+            
             int n1 = Integer.parseInt(request.getParameter("n1"));
             int n2 = Integer.parseInt(request.getParameter("n2"));
             int n3 = Integer.parseInt(request.getParameter("n3"));
 
-         // Lógica C: Encontrar el valor que más se repite (la moda)
+         
             String listaStr = request.getParameter("listaNumeros");
             String[] partes = listaStr.split(",");
             Map<Integer, Integer> frecuencias = new HashMap<>();
@@ -40,21 +40,21 @@ public class MayoresMenores extends HttpServlet {
             for (String s : partes) {
                 try {
                     int num = Integer.parseInt(s.trim());
-                    // Contamos las veces que aparece cada número
+                   
                     int cuenta = frecuencias.getOrDefault(num, 0) + 1;
                     frecuencias.put(num, cuenta);
 
-                    // Actualizamos cuál es el que más se repite
+                
                     if (cuenta > maxRepeticiones) {
                         maxRepeticiones = cuenta;
                         moda = num;
                     }
                 } catch (NumberFormatException e) {
-                    // Ignorar valores que no sean números válidos
+                 
                 }
             }
             
-         // Al final de la lógica, antes de imprimir:
+        
             String resultadoFinal;
             if (maxRepeticiones <= 1 && partes.length > 1) {
                 resultadoFinal = "No hay un valor que se repita más que otros";
@@ -64,23 +64,23 @@ public class MayoresMenores extends HttpServlet {
 
 
 
-            // Lógica A: Encontrar el mayor de 3
+           
             int mayor = Math.max(n1, Math.max(n2, n3));
 
-            // Lógica B: Encontrar el menor de 3
+           
             int menor = Math.min(n1, Math.min(n2, n3));
 
 
          response.setContentType("text/html;charset=UTF-8");
          response.getWriter().println("<!DOCTYPE html>");
-         response.getWriter().println("<html>"); // El html abre antes del head
+         response.getWriter().println("<html>"); 
          response.getWriter().println("<head>");
          response.getWriter().println("<meta charset='UTF-8'>");
          response.getWriter().println("<title>RESULTADOS</title>");
          response.getWriter().println("</head>");
          response.getWriter().println("<body>");
 
-         // Imprimir resultados
+            //este es el resutados de mayor y menor
          response.getWriter().println("<p><b>a. Mayor de ("+n1+", "+n2+", "+n3+"):</b> " + mayor + "</p>");
          response.getWriter().println("<p><b>b. Menor de ("+n1+", "+n2+", "+n3+"):</b> " + menor + "</p>");
 
@@ -105,4 +105,5 @@ public class MayoresMenores extends HttpServlet {
     }
 
  }
+
 
